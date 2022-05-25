@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s ease-in-out infinite alternate;
+}
+
+@keyframes rotateCube {
+    10%{
+        transform: rotateX(-30deg) rotateY(30deg);
+    }
+    30%{
+        transform: rotateX(-120deg) rotateY(210deg);
+    }
+    60%{
+        transform: rotateX(-150deg) rotateY(120deg);
+    }
+    70%{
+        transform: rotateX(-120deg) rotateY(300deg);
+    }
+    100%{
+        transform: rotateX(120deg) rotateY(180deg);
+    }
+}
+
+.cube div {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0,0,0,.7); */
+
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding: .5rem;
+}
+
+.cube div span {
+    background: #F7FFF7;
+}
+div.front span {
+    background: #1A535C;
+}
+div.bottom span {
+    background: #4ECDC4;
+}
+div.back span {
+    background: #FF6B6B;
+}
+div.top span {
+    background:#FFE66D;
+}
+div.left span {
+    background: #0496FF;
+}
+div.right span {
+    background: #FFC07F;
+}
+
+.front {
+    transform: translateZ(150px);
+}
+.back {
+    transform: translateZ(-150px);
+}
+.left {
+    transform: rotateY(-90deg) translateZ(150px) ;
+}
+.right {
+    transform: rotateY(90deg) translateZ(150px) ;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(150px);
+}
+.bottom {
+    transform: rotateX(90deg) translateZ(-150px);
+}
+
+@media (max-width: 500px){
+    .cube {
+        width: 200px;
+        height: 200px;
+    }
+    .cube div {
+        padding: .3rem;
+    }
+
+    .front {
+        transform: translateZ(100px);
+    }
+    .back {
+        transform: translateZ(-100px);
+    }
+    .left {
+        transform: rotateY(-90deg) translateZ(100px) ;
+    }
+    .right {
+        transform: rotateY(90deg) translateZ(100px) ;
+    }
+    
+    .top {
+        transform: rotateX(90deg) translateZ(100px);
+    }
+    .bottom {
+        transform: rotateX(90deg) translateZ(-100px);
+    }
+}
